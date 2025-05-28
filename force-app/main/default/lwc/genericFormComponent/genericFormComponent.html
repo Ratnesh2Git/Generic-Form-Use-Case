@@ -1,0 +1,24 @@
+<template>
+
+
+    <lightning-card icon-name="action:adjust_value" variant="base" title={titleName}>
+
+
+        <template lwc:if={getFields}>
+
+
+            <lightning-record-form
+              object-api-name={objApiName}
+              fields={fields}
+              onsuccess={handleSuccess}
+              onerror={handleError}           
+            ></lightning-record-form>
+    
+        </template>
+        <template lwc:else class="slds-text-color_error">
+            {emptyMessage}
+        </template>
+            
+    </lightning-card>
+    
+</template>
