@@ -6,4 +6,4 @@
 //     SFDX: Execute Anonymous Apex with Editor Contents
 
 
-System.debug(FetchFormMetadata.fetchMetadataConfig('Case', 'App Page'));
+System.debug(FetchFormMetadata.fetchMetadataConfig('Case', 'Quick Case Close', 'Edit Record'));

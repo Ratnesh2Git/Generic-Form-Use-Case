@@ -1,0 +1,24 @@
+<template>
+    
+    <lightning-card title="Close Case" icon-name="standard:case">
+        <div class="slds-align_absolute-center">
+            <lightning-button 
+            if:false={showCloseCaseComponent}
+              variant="brand"
+              label="Close Case" 
+              title="Close Case"
+              onclick={handleClose} 
+            ></lightning-button>
+        </div>
+
+        <c-quick-edit-component
+        lwc:if={showCloseCaseComponent}
+        record-id={recordId}
+        object-api-name={objectApiName}
+        place-to-be-used={placeToBeUsed}
+        oncancel={handleCancel}
+        onsuccess={handleSuccess}
+        onerror={handleError}
+        ></c-quick-edit-component>
+    </lightning-card>
+</template>

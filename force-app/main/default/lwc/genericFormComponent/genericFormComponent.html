@@ -15,8 +15,10 @@
             ></lightning-record-form>
     
         </template>
-        <template lwc:else class="slds-text-color_error">
-            {emptyMessage}
+        <template lwc:if={showMessage}>
+            <div class="slds-text-color_error slds-align_absolute-center">
+                {emptyMessage}
+            </div>
         </template>
             
     </lightning-card>

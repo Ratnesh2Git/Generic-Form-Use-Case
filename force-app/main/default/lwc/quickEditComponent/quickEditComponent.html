@@ -1,0 +1,25 @@
+<template>
+
+  <template if:true={showCloseCaseComponent}>
+  </template>
+  <template lwc:if={hasFields}>
+    <lightning-record-form
+    columns="1"
+    object-api-name={objectApiName}
+    record-id={recordId}
+    fields={fieldsToEdit}
+    mode="edit"
+      onsuccess={handleSuccess}
+      onerror={handleError}
+      oncancel={handleCancel}
+  ></lightning-record-form>
+  </template>
+
+  <template lwc:if={showMessage}>
+    <div class="slds-text-color_error slds-align_absolute-center">
+      {emptyMessage}
+    </div>
+  </template>
+
+
+</template>

@@ -13,6 +13,7 @@ export default class GenericFormComponent extends LightningElement {
     titleName;
     pageDomainUrl;
     emptyMessage = 'No Configuration found for this component';
+    showMessage = false;
 
 
     connectedCallback() {
@@ -26,12 +27,13 @@ export default class GenericFormComponent extends LightningElement {
         return this.fields?.length > 0;
     }
 
-    @wire( getConfig, { objApiNameMeta: '$objApiName', placeUse: '$placeToBeUsed' })
+    @wire( getConfig, { objApiNameMeta: '$objApiName', placeUse: '$placeToBeUsed', usedFor: 'Both Edit/New Record' })
     mdtConfigs({ error, data }) {
         if (data) {
             this.fields = Array.from(data.fieldApiNames).map(item => {
                 return { fieldApiName: item, objectApiName: this.objApiName };
             });
+            this.fields.length > 0 ? this.showMessage = false : this.showMessage = true;
         } else if (error) {
             this.error = error;
             console.error('Error fetching config:', error);
